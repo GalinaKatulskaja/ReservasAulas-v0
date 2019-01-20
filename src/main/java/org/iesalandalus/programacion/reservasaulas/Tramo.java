@@ -15,7 +15,8 @@ public enum Tramo {
     private String cadenaAMostrar;
     
     Tramo(String cadenaAMostrar){
-    this.cadenaAMostrar=cadenaAMostrar;}
+    this.cadenaAMostrar=cadenaAMostrar;
+    }
 
     @Override
     public String toString() {
