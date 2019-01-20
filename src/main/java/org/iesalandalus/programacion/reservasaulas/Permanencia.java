@@ -9,16 +9,6 @@ package org.iesalandalus.programacion.reservasaulas;
  *
  * @author Galina
  */
-public enum Tramo {
-    MANANA("Mañana"),
-    TARDE("Tarde");
-    private String cadenaAMostrar;
+public class Permanencia {
     
-    Tramo(String cadenaAMostrar){
-    this.cadenaAMostrar=cadenaAMostrar;}
-
-    @Override
-    public String toString() {
-        return cadenaAMostrar;
-    }
 }
