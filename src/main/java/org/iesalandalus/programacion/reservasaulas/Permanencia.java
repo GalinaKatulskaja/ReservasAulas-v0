@@ -7,6 +7,7 @@ package org.iesalandalus.programacion.reservasaulas;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 /**
  *
@@ -49,6 +50,40 @@ public class Permanencia {
         if(tramo==null){
         throw new IllegalArgumentException("El tramo de una permanencia no puede ser nulo.");}
         this.tramo = tramo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.dia);
+        hash = 89 * hash + Objects.hashCode(this.tramo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Permanencia other = (Permanencia) obj;
+        if (!Objects.equals(this.dia, other.dia)) {
+            return false;
+        }
+        if (this.tramo != other.tramo) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Permanencia{" + "dia=" + dia + ", tramo=" + tramo + '}';
     }
     
 }
