@@ -24,7 +24,28 @@ public class Aulas {
     public void setNumAulas(int numAulas) {
         this.numAulas = numAulas;
     }
+    privado Aula copiaProfundaAulas(Aula[] a){
     
+    }
+    public Aulas[] getAulas(){
+    return Aulas[];
+    }
+    public void insetrar(Aula aula){
+        
+    }
+    private int buscarIndiceAula(Aula){
+    }
+    private boolean indiceNoSuperaTamano(int){
+    }
+    private boolean indiceNoSuperaCapacidad(int){
+    }
+    public Aula buscar(Aula){
+    }
+    public void borrar (Aula){
+    }
+    private void desplazarUnaPosicionHaciaIzquierda(int){
+    }
+    public String[] representar(){} 
     
     
 }
