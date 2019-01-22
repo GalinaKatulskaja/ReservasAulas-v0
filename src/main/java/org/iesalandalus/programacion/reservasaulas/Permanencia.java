@@ -35,11 +35,11 @@ public class Permanencia {
         return dia;
     }
 
-    public void setDia(LocalDate dia) {
+    private void setDia(LocalDate dia) {
         if(dia==null){
             throw new IllegalArgumentException("El día de una permanencia no puede ser nulo.");
         }
-        this.dia = LocalDate.of(dia.getDayOfMonth(), dia.getMonth(), dia.getYear());
+        this.dia = dia;
     }
 
     public Tramo getTramo() {
