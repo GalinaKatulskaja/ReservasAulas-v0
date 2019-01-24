@@ -15,7 +15,8 @@ public class Aulas {
     
     public Aulas(){}
     
-    public Aulas(Aulas a){}
+    public Aulas(Aulas aulas){
+    }
 
     public int getNumAulas() {
         return numAulas;
@@ -25,6 +26,11 @@ public class Aulas {
         this.numAulas = numAulas;
     }
     privado Aula copiaProfundaAulas(Aula[] a){
+        Aula[] otrasAulas = new Aula[aulas.length];
+		for (int i = 0; i < aulas.length && aulas[i] != null; i++) {
+			otrasAulas[i] = new Aula(aulas[i]);
+		}
+		return otrasAulas;
     
     }
     public Aulas[] getAulas(){
