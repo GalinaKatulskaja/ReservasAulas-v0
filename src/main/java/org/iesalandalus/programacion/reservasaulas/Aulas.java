@@ -23,6 +23,7 @@ public class Aulas {
     }
 
     public void setNumAulas(int numAulas) {
+       
         this.numAulas = numAulas;
     }
     privado Aula copiaProfundaAulas(Aula[] a){

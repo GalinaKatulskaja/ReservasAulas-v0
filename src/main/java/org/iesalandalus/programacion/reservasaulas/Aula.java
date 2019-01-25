@@ -18,7 +18,9 @@ public class Aula {
         setNombre(nombre);
         
     }
-
+    public Aula(Aula a){
+        setNombre(a.getNombre());
+    }
     public String getNombre() {
         return nombre;
     }
@@ -51,10 +53,7 @@ public class Aula {
             return false;
         }
         final Aula other = (Aula) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.nombre, other.nombre);
     }
 
     @Override
