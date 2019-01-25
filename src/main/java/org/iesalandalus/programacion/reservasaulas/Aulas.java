@@ -82,17 +82,52 @@ public class Aulas {
         }
         return indice;
     } 
-    private boolean indiceNoSuperaTamano(int){
+    private boolean indiceNoSuperaTamano(int indice){
+        if (indice>=coleccionAulas.length){
+            return true;
+        }
+        else{
+            return false;
+        }    
     }
-    private boolean indiceNoSuperaCapacidad(int){
+    private boolean indiceNoSuperaCapacidad(int indice){
+        if (indice<MAX_AULAS){
+            return true;
+        }
+        else{
+            return false;
+        }    
     }
-    public Aula buscar(Aula){
+    public Aula buscar(Aula aula){
+        Aula encontrada= null;
+        int indice = buscarIndiceAula(aula);
+        if(indiceNoSuperaTamano(indice)){
+            encontrada = coleccionAulas[indice];
+        }
+        return encontrada;
     }
-    public void borrar (Aula){
+    public void borrar (Aula aula) throws OperationNotSupportedException{
+        int indice = buscarIndiceAula(aula);
+        if(aula ==null){
+            throw new IllegalArgumentException("No se puede borrar un aula nula.");
+        }
+        if(indiceNoSuperaTamano(indice)){
+            desplazarUnaPosicionHaciaIzquierda(indice);
+        }
+        else {
+            throw new OperationNotSupportedException("El aula a borrar no existe.");
+        }
     }
-    private void desplazarUnaPosicionHaciaIzquierda(int){
+    private void desplazarUnaPosicionHaciaIzquierda(int indice){
+        for(int i = indice; i<numAulas-1;i++){
+            coleccionAulas[i] = coleccionAulas[i+1];
+        }
+        coleccionAulas[numAulas]=null;
+        numAulas=-1;
     }
-    public String[] representar(){} 
+    public String[] representar(){
+       return ;
+    } 
     
     
 }
