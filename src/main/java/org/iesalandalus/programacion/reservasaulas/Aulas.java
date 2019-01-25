@@ -78,9 +78,10 @@ public class Aulas {
             else {
                 indice=+1;
             }
-            return indice;
+            
         }
-    }
+        return indice;
+    } 
     private boolean indiceNoSuperaTamano(int){
     }
     private boolean indiceNoSuperaCapacidad(int){
