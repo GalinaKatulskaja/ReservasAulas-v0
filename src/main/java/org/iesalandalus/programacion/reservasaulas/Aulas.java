@@ -47,7 +47,7 @@ public class Aulas {
     public Aula[] getAulas(){
         return  copiaProfundaAulas(coleccionAulas);
     }
-    public int getNumAulas(){
+    public int getNumAulas(){  
         return numAulas;
     }
     public void insetrar(Aula aula) throws OperationNotSupportedException{
