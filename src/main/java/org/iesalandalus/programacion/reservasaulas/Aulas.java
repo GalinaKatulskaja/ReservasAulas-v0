@@ -126,7 +126,11 @@ public class Aulas {
         numAulas=-1;
     }
     public String[] representar(){
-      
+        String[] representacion = new String[numAulas];
+            for (int i = 0; indiceNoSuperaTamano(i); i++) {
+		representacion[i] = coleccionAulas[i].toString();
+		}
+		return representacion;
     } 
     
     
