@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.iesalandalus.programacion.reservasaulas;
+package org.iesalandalus.programacion.reservasaulas.modelo.dao;
 
 import javax.naming.OperationNotSupportedException;
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Aula;
 
 /**
  *

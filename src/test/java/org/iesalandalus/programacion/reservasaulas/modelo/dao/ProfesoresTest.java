@@ -1,9 +1,9 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dao;
 
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
 import javax.naming.OperationNotSupportedException;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.fail;
-import org.iesalandalus.programacion.reservasaulas.Profesor;
 import org.junit.Test;
 
 public class ProfesoresTest {

@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.fail;
-import org.iesalandalus.programacion.reservasaulas.Permanencia;
-import org.iesalandalus.programacion.reservasaulas.Tramo;
 import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 
