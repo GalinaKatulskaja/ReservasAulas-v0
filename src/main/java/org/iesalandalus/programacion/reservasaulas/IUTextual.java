@@ -11,8 +11,8 @@ import javax.naming.OperationNotSupportedException;
  *
  * @author Galina
  */
-public class IUTextual {
-    private static final String ERROR = "ERROR: ";
+/*public class IUTextual {
+    private static final String ERROR = "ERROR. Vuelve a intentarlo. ";
 	
 	private ModeloGestionAulas modelo;
 
@@ -84,4 +84,4 @@ public class IUTextual {
 			System.out.println("No hay clientes que listar.");
 		}
 	}
-}
+}*/
