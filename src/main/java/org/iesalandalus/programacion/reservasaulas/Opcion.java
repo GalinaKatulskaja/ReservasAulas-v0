@@ -9,7 +9,7 @@ package org.iesalandalus.programacion.reservasaulas;
  *
  * @author Galina
  */
-public enum Opcion {
+/*public enum Opcion {
     SALIR("Salir") {
 		public void ejecutar() {
 			vista.salir();
@@ -68,4 +68,4 @@ public enum Opcion {
 	public static boolean esOrdinalValido(int ordinal) {
 		return (ordinal >= 0 && ordinal <= values().length - 1);
 	}
-}
+}*/

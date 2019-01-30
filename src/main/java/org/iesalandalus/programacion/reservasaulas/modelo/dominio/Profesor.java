@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class Profesor {
     private static final String ER_TELEFONO = "[69][0-9]{8}";
-    private static final String ER_CORREO = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
+    private static final String ER_CORREO = ".+@[a-zA-Z]+\\.[a-zA-Z]+";
     private String nombre;
     private String correo;
     private String telefono;
@@ -117,7 +117,7 @@ public class Profesor {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Profesor other = (Profesor) obj;
+        Profesor other = (Profesor) obj;
        if(nombre==null){
            if(other.nombre!=null){
                return false;
@@ -125,6 +125,14 @@ public class Profesor {
        }
        else if (!nombre.equals(other.nombre)){
            return false;
+       }
+       if(correo==null){
+           if(other.correo!=null){
+               return false;
+           }
+           else if(!correo.equals(other.correo)){
+               return false;
+           }
        }
 
         return true;
