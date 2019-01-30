@@ -14,7 +14,7 @@ import javax.naming.OperationNotSupportedException;
 public class IUTextual {
     private static final String ERROR = "ERROR: ";
 	
-	private ModeloGestionClientes modelo;
+	private ModeloGestionAulas modelo;
 
 	public IUTextual() {
 		modelo = new ModeloGestionClientes();

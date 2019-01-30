@@ -47,9 +47,6 @@ public class Aulas {
     public Aula[] getAulas(){
         return  copiaProfundaAulas(coleccionAulas);
     }
-    public int getNumAulas() {  
-        return numAulas;
-    }
     public void insetrar(Aula aula) throws OperationNotSupportedException{
         if( aula == null){
             throw new IllegalArgumentException("No se puede insertar un aula nula.");
