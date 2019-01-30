@@ -3,7 +3,10 @@ package org.iesalandalus.programacion.reservasaulas.modelo.dao;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
 import javax.naming.OperationNotSupportedException;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.fail;
+import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 
 public class ProfesoresTest {
