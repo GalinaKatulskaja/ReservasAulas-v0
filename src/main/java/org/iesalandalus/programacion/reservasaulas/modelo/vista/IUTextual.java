@@ -1,5 +1,9 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 
+import javax.naming.OperationNotSupportedException;
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Aula;
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,10 +20,10 @@ package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 public class IUTextual {
     private static final String ERROR = "ERROR. Vuelve a intentarlo. ";
 	
-	private ModeloGestionAulas modelo;
+	private ModeloReservasAulas modelo;
 
 	public IUTextual() {
-		modelo = new ModeloGestionClientes();
+		modelo = new ModeloReservasAulas();
 		Opcion.setVista(this);
 	}
 
@@ -34,39 +38,39 @@ public class IUTextual {
 	}
 	
 	public void salir() {
-		System.out.println("Hasta luego Lucas!!!");
+		System.out.println("Hasta luego!!!");
 	}
 	
 	public void insertarCliente() {
-		Consola.mostrarCabecera("Insertar cliente");
+		Consola.mostrarCabecera("Insertar aula");
 		try {
-			Cliente cliente = Consola.leerCliente();
-			modelo.insertarCliente(cliente);
-			System.out.println("Cliente insertado correctamente.");
-		} catch (OperationNotSupportedException|IllegalArgumentException e) {
+			Aula aula = Consola.leerAula();
+			modelo.insertarAula(aula);
+			System.out.println("Aula insertado correctamente.");
+		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
 		}
 	}
 	
 	public void borrarCliente() {
-		Consola.mostrarCabecera("Borrar cliente");
+		Consola.mostrarCabecera("Borrar caula");
 		try {
-			Cliente cliente = Consola.leerDniCliente();
-			modelo.borrarCliente(cliente);
+			Aula aula = Consola.leerAula();
+			modelo.borrarAula(aula);
 			System.out.println("Cliente borrado correctamente.");
-		} catch (OperationNotSupportedException|IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
 		}
 	}
 	
 	public void buscarCliente() {
-		Consola.mostrarCabecera("Buscar cliente");
-		Cliente cliente = null;
+		Consola.mostrarCabecera("Buscar aula");
+		Aula aula = null;
 		try {
-			cliente = Consola.leerDniCliente();
-			cliente = modelo.buscarCliente(cliente);
-			if (cliente != null) {
-				System.out.println("El cliente buscado es: " + cliente);
+			aula = Consola.leerAula();
+			aula = modelo.buscarAula(aula);
+			if (aula != null) {
+				System.out.println("El cliente buscado es: " + aula);
 			} else {
 				System.out.println("No existe ningún cliente con dicho DNI.");
 			}
@@ -75,15 +79,50 @@ public class IUTextual {
 		}
 	}
 	
-	public void listarClientes() {
-		Consola.mostrarCabecera("Listar clientes");
-		String[] clientes = modelo.representarClientes();
-		if (clientes.length > 0) {
-			for (String cliente : clientes) {
-				System.out.println(cliente);
+	public void listarAula() {
+		Consola.mostrarCabecera("Listar aula");
+		String[] aula = modelo.representarAulas();
+                    if (aula.length > 0) {
+			for (String aulas : aula) {
+				System.out.println(aulas);
+			}
+		} else {
+			System.out.println("No hay clientes que listar.");
+		}     
+	}
+        
+        public void insertarProfesor(){
+            Consola.mostrarCabecera("Insertar Profesor");
+            try{
+                modelo.insertarProfesor(Consola.leerProfesor());
+                System.out.println("el Profesor se ha incertado correctamente");
+            }catch (IllegalArgumentException e){
+                System.out.println(ERROR + e.getMessage());
+                
+            }
+        }
+        
+        public void borrarProfesor(){
+            Consola.mostrarCabecera("Borrar Profesor");
+            try{
+                Profesor profesor = new Profesor(Consola.leerNombreProfesor(), "ab@cd.e");
+                modelo.borrarProfesor(profesor);
+                System.out.println("El profesor se ha eliminado correctamente");
+            }catch(IllegalArgumentException e){
+                System.out.println(ERROR + e.getMessage());
+            }
+        }
+        
+        public void listarProfesor(){
+            Consola.mostrarCabecera("Listar Profesor");
+            String[] profesor = modelo.representarProfesores();
+            if (profesor.length > 0) {
+			for (String profesores :profesor) {
+				System.out.println(profesores);
 			}
 		} else {
 			System.out.println("No hay clientes que listar.");
 		}
-	}
+        }
+        
 }

@@ -5,7 +5,7 @@
  */
 package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 
-import org.iesalandalus.programacion.reservasaulas.IUTextual;
+import org.iesalandalus.programacion.reservasaulas.modelo.vista.IUTextual;
 
 /**
  *
@@ -34,7 +34,7 @@ public enum Opcion {
 	},
 	LISTAR_AULAS("Listar clientes") {
 		public void ejecutar() {
-			vista.listarClientes();
+			vista.listarAula();
 		}
 	};
 	
