@@ -13,7 +13,7 @@ package org.iesalandalus.programacion.reservasaulas.modelo.vista;
  *
  * @author Galina
  */
-/*public class IUTextual {
+public class IUTextual {
     private static final String ERROR = "ERROR. Vuelve a intentarlo. ";
 	
 	private ModeloGestionAulas modelo;
@@ -86,4 +86,4 @@ package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 			System.out.println("No hay clientes que listar.");
 		}
 	}
-}*/
+}
