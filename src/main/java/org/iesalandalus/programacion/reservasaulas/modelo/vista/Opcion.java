@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.iesalandalus.programacion.reservasaulas;
+package org.iesalandalus.programacion.reservasaulas.modelo.vista;
+
+import org.iesalandalus.programacion.reservasaulas.IUTextual;
 
 /**
  *
  * @author Galina
  */
-/*public enum Opcion {
+public enum Opcion {
     SALIR("Salir") {
 		public void ejecutar() {
 			vista.salir();
@@ -68,4 +70,4 @@ package org.iesalandalus.programacion.reservasaulas;
 	public static boolean esOrdinalValido(int ordinal) {
 		return (ordinal >= 0 && ordinal <= values().length - 1);
 	}
-}*/
+}
