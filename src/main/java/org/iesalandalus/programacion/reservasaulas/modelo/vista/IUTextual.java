@@ -2,7 +2,9 @@ package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 
 import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Aula;
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Permanencia;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Reserva;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -87,7 +89,7 @@ public class IUTextual {
 				System.out.println(aulas);
 			}
 		} else {
-			System.out.println("No hay clientes que listar.");
+			System.out.println("No hay aulas que listar.");
 		}     
 	}
         
@@ -121,8 +123,106 @@ public class IUTextual {
 				System.out.println(profesores);
 			}
 		} else {
-			System.out.println("No hay clientes que listar.");
+			System.out.println("No hay profesores que listar.");
 		}
         }
+        public void realizarReserva(){
+            Consola.mostrarCabecera("Realizar reserva");
+            Profesor profesor = modelo.buscarProfesor(new Profesor(Consola.leerNombreProfesor(), "ab@c.de"));
+             if(profesor == null){
+                 System.out.println("El profesor que deseas reservar no existe");
+                 //registrar();
+             }
+             try{
+                 Reserva reserva = leerReserva(profesor);
+                 modelo.realizarReserva(reserva);
+                 System.out.println("La reserva se ha realizado correctamente");
+             }catch(IllegalArgumentException e){
+                 System.out.println(ERROR + e.getMessage());
+             }
+                 
+        }
         
+        private Reserva leerReserva(Profesor profesor){
+            Aula aula = Consola.leerAula();
+            Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
+            return new Reserva(profesor, aula, permanencia);
+        }   
+        
+       public void anularReserva(){
+           Consola.mostrarCabecera("Anular Reserva");
+           Reserva reserva = leerReserva(new Profesor("Jose", "ab@c.de"));
+           
+           try{
+               modelo.anularReserva(reserva);
+               System.out.println("La reserva se ha anulado correctamente");
+               
+           }catch(IllegalArgumentException e){
+               System.out.println(ERROR + e.getMessage());
+           }
+       }
+       
+       public void listarReservas(){
+           Consola.mostrarCabecera("Listar Reserva");
+           String[] reserva = modelo.representarReserva();
+            if (reserva.length > 0) {
+			for (String reservas :reserva) {
+				System.out.println(reservas);
+			}
+		} else {
+			System.out.println("No hay reservas que listar.");
+		}
+       }
+       
+       public void listarReservasAulas(){
+           Consola.mostrarCabecera("Listar reservas de aulas");
+           Aula aula = Consola.leerAula();
+           Reserva[] reservas = modelo.getReservasAulas(aula);
+           for(int i = 0; i< reservas.length; i++){
+               if(reservas[i] == null){
+                   System.out.println("Las reservas para el aula: " + aula + "NO EXISTEN.");
+               }
+               System.out.println(reservas[i]);
+           }
+       }
+       
+       public void listarReservaProfesor(){
+           Consola.mostrarCabecera("Listar Reserva Del Profesor");
+           Profesor profesor = new Profesor(Consola.leerNombreProfesor(), "ab@c.de");
+           Reserva[] reservas = modelo.getReservasProfesor(profesor);
+           for(int i = 0; i< reservas.length; i++){
+               if(reservas[i] == null){
+                   System.out.println("La reserva para el Profesor: " + profesor + " NO EXISTE.");
+               }
+               System.out.println(reservas[i]);
+           }
+       }
+       
+       public void listarReservaPermanencia(){
+           Consola.mostrarCabecera("Listar reserva Permanencia");
+           Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
+           Reserva[] reservas = modelo.getReservasPermanencia(permanencia);
+           for(int i = 0; i<reservas.length;i++){
+               if(reservas[i] == null){
+                   System.out.println("La reserva para la Permanencia: " + permanencia + " NO EXISTE.");
+               }
+               System.out.println("reserva[i]");
+           }
+       }
+       
+       public void consultarDisponibilidad(){
+           Consola.mostrarCabecera("Consulta la disponibilidad");
+           Aula aula = Consola.leerAula();
+           Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
+           boolean disponibilidad = modelo.consultarDisponidilidad(aula,permanencia);
+       
+             if(disponibilidad == true){
+                 System.out.println("La reserva esta disponible.");
+                 
+            } 
+             else{
+                 System.out.println("La reserva no esta disponible");
+             } 
+    
+}
 }
