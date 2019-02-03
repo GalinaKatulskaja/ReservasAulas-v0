@@ -81,7 +81,7 @@ public class Aulas {
         return indice;
     } 
     private boolean indiceNoSuperaTamano(int indice){
-        if (indice>=coleccionAulas.length){
+        if (indice<coleccionAulas.length){
             return true;
         }
         else{
