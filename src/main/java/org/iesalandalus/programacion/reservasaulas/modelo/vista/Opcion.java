@@ -12,29 +12,89 @@ import org.iesalandalus.programacion.reservasaulas.modelo.vista.IUTextual;
  * @author Galina
  */
 public enum Opcion {
-    SALIR("Salir") {
+	SALIR("Salir") {
 		public void ejecutar() {
 			vista.salir();
 		}
 	},
-	INSERTAR_AULA("Insertar cliente") {
+	INSERTAR_AULA("Insertar aula") {
 		public void ejecutar() {
-			vista.insertarCliente();
+			vista.insertarAula();
 		}
 	},
-	BORRAR_AULA("Borrar cliente") {
+	BORRAR_AULA("Borrar aula") {
 		public void ejecutar() {
-			vista.borrarCliente();
+			vista.borrarAula();
 		}
 	},
-	BUSCAR_AULA("Buscar cliente") {
+	BUSCAR_AULA("Buscar aula") {
 		public void ejecutar() {
-			vista.buscarCliente();
+			vista.buscarAula();
 		}
 	},
-	LISTAR_AULAS("Listar clientes") {
+	LISTAR_AULAS("Listar aula") {
 		public void ejecutar() {
 			vista.listarAula();
+		}
+	},
+        LISTAR_AULAS("Listar aulas") {
+		public void ejecutar() {
+			vista.listarAulas();
+		}
+	},
+	INSERTAR_PROFESOR("Insertar profesor") {
+		public void ejecutar() {
+			vista.insertarProfesor();
+		}
+	},
+	BORRAR_PROFESOR("Borrar profesor") {
+		public void ejecutar() {
+			vista.borrarProfesor();
+		}
+	},
+	BUSCAR_PROFESOR("Buscar profesor") {
+		public void ejecutar() {
+			vista.buscarProfesor();
+		}
+	},
+	LISTAR_PROFESORES("Listar profesores") {
+		public void ejecutar() {
+			vista.listarProfesor();
+		}
+	},
+	INSERTAR_RESERVA("Insertar reserva") {
+		public void ejecutar() {
+			vista.comenzar();
+		}
+	},
+	BORRAR_RESERVA("Borrar reserva") {
+		public void ejecutar() {
+			vista.anularReserva();
+		}
+	},
+	LISTAR_RESERVAS("Listar reservas") {
+		public void ejecutar() {
+			vista.listarReservas();
+		}
+	},
+	LISTAR_RESERVAS_AULA("Listar reservas aula") {
+		public void ejecutar() {
+			vista.listarReservasAulas();
+		}
+	},
+	LISTAR_RESERVAS_PROFESOR("Listar reservas profesor") {
+		public void ejecutar() {
+			vista.listarReservaProfesor();
+		}
+	},
+	LISTAR_RESERVAS_PERMANENCIA("Listar reservas permanencia") {
+		public void ejecutar() {
+			vista.listarReservaPermanencia();
+		}
+	},
+	CONSULTAR_DISPONIBILIDAD("Consultar disponibilidad") {
+		public void ejecutar() {
+			vista.consultarDisponibilidad();
 		}
 	};
 	

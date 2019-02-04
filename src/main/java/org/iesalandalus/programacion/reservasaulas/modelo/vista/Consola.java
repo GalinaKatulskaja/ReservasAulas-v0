@@ -8,6 +8,7 @@ package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import org.iesalandalus.programacion.utilidades.Entrada;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.*;
 
@@ -83,6 +84,21 @@ public class Consola {
         }while(indice<1 ||indice>2);
         return Tramo.values()[indice-1];
     }
-    
+    static LocalDate leerDia(){
+        String fecha;
+        boolean valido = false;
+        do{
+            System.out.println("Introduce la fecha (dd/mm/aaaa)");
+            fecha = Entrada.cadena();
+           
+            try{
+                LocalDate.parse(fecha, FORMATO_DIA);
+                valido = true;
+            }catch (DateTimeParseException e){
+                valido = false;
+            }
+        }while(!valido);
+        
+        return LocalDate.parse(fecha, FORMATO_DIA);    }
  
 }

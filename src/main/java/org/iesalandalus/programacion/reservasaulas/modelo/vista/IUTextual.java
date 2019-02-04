@@ -1,6 +1,7 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 
 import javax.naming.OperationNotSupportedException;
+import org.iesalandalus.programacion.reservasaulas.modelo.ModeloReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Aula;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Permanencia;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
@@ -43,7 +44,7 @@ public class IUTextual {
 		System.out.println("Hasta luego!!!");
 	}
 	
-	public void insertarCliente() {
+	public void insertarCliente() throws OperationNotSupportedException {
 		Consola.mostrarCabecera("Insertar aula");
 		try {
 			Aula aula = Consola.leerAula();
@@ -54,7 +55,7 @@ public class IUTextual {
 		}
 	}
 	
-	public void borrarCliente() {
+	public void borrarCliente() throws OperationNotSupportedException {
 		Consola.mostrarCabecera("Borrar caula");
 		try {
 			Aula aula = Consola.leerAula();
@@ -93,7 +94,7 @@ public class IUTextual {
 		}     
 	}
         
-        public void insertarProfesor(){
+        public void insertarProfesor() throws OperationNotSupportedException{
             Consola.mostrarCabecera("Insertar Profesor");
             try{
                 modelo.insertarProfesor(Consola.leerProfesor());
@@ -104,7 +105,7 @@ public class IUTextual {
             }
         }
         
-        public void borrarProfesor(){
+        public void borrarProfesor() throws OperationNotSupportedException{
             Consola.mostrarCabecera("Borrar Profesor");
             try{
                 Profesor profesor = new Profesor(Consola.leerNombreProfesor(), "ab@cd.e");
@@ -126,7 +127,7 @@ public class IUTextual {
 			System.out.println("No hay profesores que listar.");
 		}
         }
-        public void realizarReserva(){
+        public void realizarReserva() throws OperationNotSupportedException{
             Consola.mostrarCabecera("Realizar reserva");
             Profesor profesor = modelo.buscarProfesor(new Profesor(Consola.leerNombreProfesor(), "ab@c.de"));
              if(profesor == null){
@@ -149,7 +150,7 @@ public class IUTextual {
             return new Reserva(profesor, aula, permanencia);
         }   
         
-       public void anularReserva(){
+       public void anularReserva() throws OperationNotSupportedException{
            Consola.mostrarCabecera("Anular Reserva");
            Reserva reserva = leerReserva(new Profesor("Jose", "ab@c.de"));
            
@@ -164,7 +165,7 @@ public class IUTextual {
        
        public void listarReservas(){
            Consola.mostrarCabecera("Listar Reserva");
-           String[] reserva = modelo.representarReserva();
+           String[] reserva = modelo.respresentarReservas();
             if (reserva.length > 0) {
 			for (String reservas :reserva) {
 				System.out.println(reservas);
@@ -214,7 +215,7 @@ public class IUTextual {
            Consola.mostrarCabecera("Consulta la disponibilidad");
            Aula aula = Consola.leerAula();
            Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
-           boolean disponibilidad = modelo.consultarDisponidilidad(aula,permanencia);
+           boolean disponibilidad = modelo.consulrarDisponibilidad(aula, permanencia);
        
              if(disponibilidad == true){
                  System.out.println("La reserva esta disponible.");
