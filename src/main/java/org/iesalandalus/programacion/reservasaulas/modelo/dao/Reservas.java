@@ -52,7 +52,7 @@ public class Reservas {
          return completarReservaCopia;
     }  
     
-    public Reserva[] getReserva() {
+    public Reserva[] getReservas() {
         return copiaProfundaReservas(completarReserva);
     }
     
@@ -139,7 +139,7 @@ public class Reservas {
         numReservas--;
     }
     
-    public String[] respresentar(){
+    public String[] representar(){
         String[] representarReserva= new String[numReservas];
         for(int i = 0; indiceNoSuperaTamano(i); i++){
             representarReserva[i] = completarReserva[i].toString();

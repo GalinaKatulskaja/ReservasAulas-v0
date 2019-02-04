@@ -31,9 +31,9 @@ public class Reserva {
         if(reserva == null){
             throw new IllegalArgumentException("No se puede copiar una reserva nula.");
         }
-        setProfesor(reserva.profesor);
-        setAula(reserva.aula);
-        setPermanencia(reserva.permanencia);
+        setProfesor(profesor);
+       setAula(aula);
+       setPermanencia(permanencia);
     }
 
     public Profesor getProfesor() {

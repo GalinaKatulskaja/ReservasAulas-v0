@@ -18,8 +18,8 @@ public class Aula {
         setNombre(nombre);
         
     }
-    public Aula(Aula a){
-        setNombre(a.getNombre());
+    public Aula(Aula aula){
+        setNombre(aula.getNombre());
     }
     public String getNombre() {
         return nombre;

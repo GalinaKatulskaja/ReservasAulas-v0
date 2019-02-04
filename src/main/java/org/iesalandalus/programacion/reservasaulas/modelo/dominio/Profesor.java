@@ -39,9 +39,9 @@ public class Profesor {
                 throw new IllegalArgumentException("No se puede copiar un profesor nulo.");
             }
             else {
-                setNombre(profesor.nombre);
-                setCorreo(profesor.correo);
-                setTelefono(profesor.telefono);
+                setNombre(profesor.getNombre());
+                setCorreo(profesor.getCorreo());
+                setTelefono(profesor.getTelefono());
             }
             
             

@@ -34,7 +34,7 @@ public class Aulas {
         if(aulas == null){
             throw new IllegalArgumentException("No se pueden copiar aulas nulas.");
         }
-        this.coleccionAulas = this.copiaProfundaAulas(aulas.coleccionAulas);      
+        this.coleccionAulas = copiaProfundaAulas(aulas.coleccionAulas);      
         this.numAulas = aulas.numAulas;
     }
     private Aula[] copiaProfundaAulas(Aula[] coleccionAulas){
@@ -96,6 +96,25 @@ public class Aulas {
             return false;
         }    
     }
+    
+    public void insertar(Aula aula) throws OperationNotSupportedException {
+		if(aula == null) {
+			throw new IllegalArgumentException("No se puede insertar un aula nula.");
+		}
+		int indice = buscarIndiceAula(aula);
+		if(indiceNoSuperaTamano(indice) == false) {
+			coleccionAulas[indice] = aula;
+			numAulas++;
+		} else {
+			if(indiceNoSuperaCapacidad(indice)) {
+				throw new OperationNotSupportedException("El aula ya existe.");
+			} else {
+				throw new OperationNotSupportedException("");
+			}
+		}
+	}
+
+
     public Aula buscar(Aula aula){
         Aula encontrada= null;
         int indice = buscarIndiceAula(aula);
@@ -104,7 +123,7 @@ public class Aulas {
         }
         return encontrada;
     }
-    public void borrar (Aula aula) throws OperationNotSupportedException{
+    public void borrar(Aula aula) throws OperationNotSupportedException{
         int indice = buscarIndiceAula(aula);
         if(aula ==null){
             throw new IllegalArgumentException("No se puede borrar un aula nula.");

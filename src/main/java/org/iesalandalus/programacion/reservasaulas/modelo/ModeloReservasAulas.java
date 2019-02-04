@@ -76,13 +76,13 @@ public class ModeloReservasAulas {
          }
          
          public Reserva[] getReserva(){
-             return reservas.getReserva();
+             return reservas.getReservas();
          }
          public int getNumReservas(){
              return reservas.getNumReservas();
          }
          public String[] respresentarReservas(){
-             return reservas.respresentar();
+             return reservas.representar();
          }
          public void realizarReserva(Reserva reserva) throws OperationNotSupportedException{
              reservas.insertar(reserva);
