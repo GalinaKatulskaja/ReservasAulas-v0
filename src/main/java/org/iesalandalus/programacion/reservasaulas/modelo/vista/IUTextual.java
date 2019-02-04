@@ -44,7 +44,7 @@ public class IUTextual {
 		System.out.println("Hasta luego!!!");
 	}
 	
-	public void insertarCliente() throws OperationNotSupportedException {
+	public void insertarAula() throws OperationNotSupportedException {
 		Consola.mostrarCabecera("Insertar aula");
 		try {
 			Aula aula = Consola.leerAula();
@@ -55,7 +55,7 @@ public class IUTextual {
 		}
 	}
 	
-	public void borrarCliente() throws OperationNotSupportedException {
+	public void borrarAula() throws OperationNotSupportedException {
 		Consola.mostrarCabecera("Borrar caula");
 		try {
 			Aula aula = Consola.leerAula();
@@ -66,7 +66,7 @@ public class IUTextual {
 		}
 	}
 	
-	public void buscarCliente() {
+	public void buscarAula() {
 		Consola.mostrarCabecera("Buscar aula");
 		Aula aula = null;
 		try {
@@ -187,7 +187,7 @@ public class IUTextual {
            }
        }
        
-       public void listarReservaProfesor(){
+       public void listarReservasProfesor(){
            Consola.mostrarCabecera("Listar Reserva Del Profesor");
            Profesor profesor = new Profesor(Consola.leerNombreProfesor(), "ab@c.de");
            Reserva[] reservas = modelo.getReservasProfesor(profesor);
@@ -199,10 +199,10 @@ public class IUTextual {
            }
        }
        
-       public void listarReservaPermanencia(){
+       public void listarReservasPermanencia(){
            Consola.mostrarCabecera("Listar reserva Permanencia");
            Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
-           Reserva[] reservas = modelo.getReservasPermanencia(permanencia);
+           Reserva[] reservas = modelo.getReservaPermanencia(permanencia);
            for(int i = 0; i<reservas.length;i++){
                if(reservas[i] == null){
                    System.out.println("La reserva para la Permanencia: " + permanencia + " NO EXISTE.");
@@ -226,4 +226,8 @@ public class IUTextual {
              } 
     
 }
+
+    void buscarProfesor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,6 +5,9 @@
  */
 package org.iesalandalus.programacion.reservasaulas.modelo.vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.reservasaulas.modelo.vista.IUTextual;
 
 /**
@@ -19,12 +22,20 @@ public enum Opcion {
 	},
 	INSERTAR_AULA("Insertar aula") {
 		public void ejecutar() {
-			vista.insertarAula();
+                    try {
+                        vista.insertarAula();
+                    } catch (OperationNotSupportedException ex) {
+                        Logger.getLogger(Opcion.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 	},
 	BORRAR_AULA("Borrar aula") {
 		public void ejecutar() {
-			vista.borrarAula();
+                    try {
+                        vista.borrarAula();
+                    } catch (OperationNotSupportedException ex) {
+                        Logger.getLogger(Opcion.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 	},
 	BUSCAR_AULA("Buscar aula") {
@@ -37,19 +48,23 @@ public enum Opcion {
 			vista.listarAula();
 		}
 	},
-        LISTAR_AULAS("Listar aulas") {
-		public void ejecutar() {
-			vista.listarAulas();
-		}
-	},
+       
 	INSERTAR_PROFESOR("Insertar profesor") {
 		public void ejecutar() {
-			vista.insertarProfesor();
+                    try {
+                        vista.insertarProfesor();
+                    } catch (OperationNotSupportedException ex) {
+                        Logger.getLogger(Opcion.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 	},
 	BORRAR_PROFESOR("Borrar profesor") {
 		public void ejecutar() {
-			vista.borrarProfesor();
+                    try {
+                        vista.borrarProfesor();
+                    } catch (OperationNotSupportedException ex) {
+                        Logger.getLogger(Opcion.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 	},
 	BUSCAR_PROFESOR("Buscar profesor") {
@@ -69,7 +84,11 @@ public enum Opcion {
 	},
 	BORRAR_RESERVA("Borrar reserva") {
 		public void ejecutar() {
-			vista.anularReserva();
+                    try {
+                        vista.anularReserva();
+                    } catch (OperationNotSupportedException ex) {
+                        Logger.getLogger(Opcion.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 	},
 	LISTAR_RESERVAS("Listar reservas") {
@@ -84,12 +103,12 @@ public enum Opcion {
 	},
 	LISTAR_RESERVAS_PROFESOR("Listar reservas profesor") {
 		public void ejecutar() {
-			vista.listarReservaProfesor();
+			vista.listarReservasProfesor();
 		}
 	},
 	LISTAR_RESERVAS_PERMANENCIA("Listar reservas permanencia") {
 		public void ejecutar() {
-			vista.listarReservaPermanencia();
+			vista.listarReservasPermanencia();
 		}
 	},
 	CONSULTAR_DISPONIBILIDAD("Consultar disponibilidad") {
