@@ -53,9 +53,12 @@ public class Profesor {
         }
 
         public void setNombre(String nombre) {
-            if(nombre==null || nombre.equals("")){
-                throw new IllegalArgumentException("El nombre del profesor no puede ser nulo.");    
-            }
+            if (nombre == null) {
+			throw new IllegalArgumentException("El nombre del profesor no puede ser nulo.");
+		}
+		if (nombre.equals("")) {
+			throw new IllegalArgumentException("El nombre del profesor no puede estar vacío.");
+		}
             this.nombre = nombre;
         }
 
@@ -64,19 +67,14 @@ public class Profesor {
         }
 
         public void setCorreo(String correo) {
-            if (correo != null || correo.equals("")) 
-                if (Pattern.matches(ER_CORREO, correo))
-                {
-                this.correo = correo;
-                } 
-                else 
-                {
-                throw new IllegalArgumentException("El correo no tiene un formato válido.");
-                }
-            else 
-            {
-            throw new IllegalArgumentException("El correo no tiene un formato válido.");
-            }
+            if (correo == null) {
+			throw new IllegalArgumentException("El correo del profesor no puede ser nulo.");
+		}
+		if (correo.matches(ER_CORREO)) {
+			this.correo = correo;
+		} else {
+			throw new IllegalArgumentException("El correo del profesor no es válido.");
+		}
         }
 
         public String getTelefono() {
@@ -84,18 +82,13 @@ public class Profesor {
         }
 
         public void setTelefono(String telefono) {
-            if (telefono != null || telefono.equals(""))
-            if(Pattern.matches(ER_TELEFONO, telefono))
-            {
-                this.telefono = telefono;
-            }else
-            {
-            throw new IllegalArgumentException("El teléfono de un contacto no puede ser nulo o vacio.");
-            }   
-        else 
-        {
-        throw new IllegalArgumentException("El teléfono no tiene un formato válido.");
-        }
+            if (telefono != null) {
+		if (telefono.matches(ER_TELEFONO)) {
+                    this.telefono = telefono;
+			} else {
+                            throw new IllegalArgumentException("El teléfono del profesor no es válido.");
+			}
+		}
         }
 
     @Override
@@ -140,9 +133,11 @@ public class Profesor {
 
     @Override
     public String toString() {
-       
-        return "[nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono + '}';
-    }
+       	if (telefono == null) {
+            return "[nombre=" + nombre + ", correo=" + correo + "]";
+            }
+            return "[nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono + "]";
+	}
         
         
 

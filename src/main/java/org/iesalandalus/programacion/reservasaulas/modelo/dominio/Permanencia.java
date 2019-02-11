@@ -48,7 +48,8 @@ public class Permanencia {
 
     public void setTramo(Tramo tramo) {
         if(tramo==null){
-        throw new IllegalArgumentException("El tramo de una permanencia no puede ser nulo.");}
+        throw new IllegalArgumentException("El tramo de una permanencia no puede ser nulo.");
+        }
         this.tramo = tramo;
     }
 

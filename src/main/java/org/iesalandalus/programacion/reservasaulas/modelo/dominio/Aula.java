@@ -19,7 +19,10 @@ public class Aula {
         
     }
     public Aula(Aula aula){
-        setNombre(aula.getNombre());
+        if(aula == null) {
+            throw new IllegalArgumentException("No se puede copiar un aula nula.");
+		}
+        setNombre(nombre);
     }
     public String getNombre() {
         return nombre;
